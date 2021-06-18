@@ -1,13 +1,17 @@
 #include <stdio.h>
-/** main fumction 
-** for loop
-return 0 **/
-int main () {
-   char ch;
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
 
-   for(ch = 'a' ; ch <= 'z' ; ch++) {
-      putchar(ch);
-   }
-   
-   return(0);
+	char c;
+
+	for (c = 'a'; c <= 'z'; c++)
+		putchar(c);
+		putchar('\n');
+
+return (0);
 }
