@@ -1,27 +1,27 @@
-nclude "holberton.h"
-
-#define ROT13IN  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-#define ROT13OUT "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
+#include "holberton.h"
 
 /**
  * rot13 - encodes a string in rot13
- * @s: the string to encode
+ * @s: string to be encoded
  *
- * Return: char pointer
+ * Return: the resulting string
  */
 char *rot13(char *s)
 {
-	char *ret = s, *rot13in = ROT13IN, *rot13out = ROT13OUT;
-	int i = 0;
+	int i, j;
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	for (; *s; s++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (i = 0; rot13in[i]; i++)
-			if (*s == rot13in[i])
+		for (j = 0; a[j] != '\0'; j++)
+		{
+			if (s[i] == a[j])
 			{
-				*s = rot13out[i];
+				s[i] = b[j];
 				break;
 			}
+		}
 	}
-	return (ret);
+	return (s);
 }
