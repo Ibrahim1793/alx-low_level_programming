@@ -1,33 +1,36 @@
 #include "holberton.h"
 
 /**
- * _strpbrk - Search a string for any of a set of bytes.
- * @s: string
- * @accept: string to match
- * Return: Pointer to the byte in `s` that matches one of the bytes in `accept`
- * or NULL if no such byte is found.
+ * _strspn - search a string for a set of bytes
+ * @s: char string array
+ * @accept: char array to check bytes with
+ * Return: Number of bytes in the intial segment of `s`
  */
 
-char *_strpbrk(char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
-	int i, j;
-	char *p;
+	int i;
+	int j;
+	int c;
 
 	i = 0;
+	c = 0;
+
 	while (s[i] != '\0')
 	{
 		j = 0;
 		while (accept[j] != '\0')
 		{
-			if (accept[j] == s[i])
+			if (s[i] == accept[j])
 			{
-				p = &s[i];
-				return (p);
+				c++;
+				break;
 			}
 			j++;
 		}
+		if (accept[j] == '\0')
+			break;
 		i++;
 	}
-
-	return (0);
+	return (c);
 }
